@@ -1,0 +1,51 @@
+
+# ███████╗████████╗ █████╗ ██████╗ ███████╗██╗  ██╗██╗██████╗
+# ██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔════╝██║  ██║██║██╔══██╗
+# ███████╗   ██║   ███████║██████╔╝███████╗███████║██║██████╔╝
+# ╚════██║   ██║   ██╔══██║██╔══██╗╚════██║██╔══██║██║██╔═══╝
+# ███████║   ██║   ██║  ██║██║  ██║███████║██║  ██║██║██║
+# ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝
+# The minimal, blazing-fast, and infinitely customizable prompt
+# https://starship.rs
+
+[character]
+success_symbol = " [\uf8ff \uf054](white)"
+vicmd_symbol = " [\uf8ff \ue62b](white)" # 
+error_symbol = " [\uf8ff \uf467](red)" # 
+
+[directory]
+style = "blue bold"
+format = ' [$path]($style)[$read_only]($read_only_style) '
+
+[package]
+disabled = true
+
+[username]
+disabled = false
+format = ' [$user]($style) in '
+style_user = "white bold"
+show_always = false
+
+[hostname]
+disabled = true
+
+[aws]
+disabled = true
+
+[docker_context]
+disabled = false
+
+[git_branch]
+disabled = false
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = false
