@@ -46,6 +46,6 @@ yabai -m config window_gap                  6
 yabai -m rule --add app="^Réglages Système$" manage=off
 yabai -m rule --add app="^Finder" manage=off
 yabai -m rule --add app="^Webex" manage=off
-yabai -m rule --add app="^Sleeve" manage=off
+yabai -m rule --add app="^MAMP" manage=off
 
 echo "yabai configuration loaded.."

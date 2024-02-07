@@ -4,7 +4,9 @@ import subprocess
 
 def main():
     try:
-        output = subprocess.check_output(["/opt/homebrew/bin/tmux", "ls"], text=True)
+        output = subprocess.check_output(
+            ["/opt/homebrew/bin/tmux", "ls"], universal_newlines=True
+        )
         lines = output.strip().split("\n")
         temp_exists_already = False
         for line in lines:

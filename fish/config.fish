@@ -18,17 +18,25 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 
 set -Ux BAT_THEME Catppuccin-mocha # 'sharkdp/bat' cat clone
-set -Ux EDITOR nvim # 'neovim/neovim' text editor
+set -Ux EDITOR nvim
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux VISUAL nvim
 
-# golang - https://golang.google.cn/
+set -Ux DOCKER_CONTENT_TRUST 1
 set -Ux GOPATH (go env GOPATH)
 set -Ux JAVA_HOME (/usr/libexec/java_home -v 17)
-fish_add_path $GOPATH/bin
-fish_add_path /Users/maestro-bene/.asdf/installs/elixir/1.13.4-otp-25/bin/
+set -Ux DOTNET_ROOT  /Users/maestro-bene/dotnet/
+set -Ux MISTRAL_API_KEY  j6SWQ3bSgr1fUFoYcln2r7PincJWPsxc
+set -Ux ASDF_FORCE_PREPEND "yes"
+set -Ux HOMEBREW_NO_ENV_HINTS 1
 
+fish_add_path $GOPATH/bin
+fish_add_path $HOME/.local/share/nvim/mason/bin/
+fish_add_path $HOME/dotnet 
 fish_add_path $HOME/.config/bin # my custom scripts
+
+set -gx PATH (string join : (string split : $PATH | uniq))
+
 
 # https://egeek.me/2020/04/18/enabling-locate-on-osx/
 if type -q glocate
@@ -47,3 +55,5 @@ if status is-interactive
     # Run script only if the shell is interactive
     ~/.config/fish/tmux-clean.fish
 end
+
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
