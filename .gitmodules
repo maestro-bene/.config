@@ -1,9 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/maestro-bene/init.lua
-[submodule "tmux/plugins/catppuccin"]
-	path = tmux/plugins/catppuccin
-	url = https://github.com/catppuccin/tmux
 [submodule "alacritty/catppuccin"]
 	path = alacritty/catppuccin
 	url = https://github.com/catppuccin/alacritty
