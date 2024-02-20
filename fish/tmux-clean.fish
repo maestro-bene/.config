@@ -1,3 +1,3 @@
 #!/opt/homebrew/bin/fish
-python3 ~/.config/fish/tmux_session_killer.py
+python ~/.config/fish/tmux_session_killer.py
 clear

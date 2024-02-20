@@ -47,5 +47,6 @@ yabai -m rule --add app="^Réglages Système$" manage=off
 yabai -m rule --add app="^Finder" manage=off
 yabai -m rule --add app="^Webex" manage=off
 yabai -m rule --add app="^MAMP" manage=off
+yabai -m rule --add app="^League of Legends" manage=off
 
 echo "yabai configuration loaded.."

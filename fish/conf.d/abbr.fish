@@ -25,6 +25,8 @@ abbr dcdv "docker compose down -v"
 abbr dcr "docker compose restart"
 abbr dcu "docker compose up -d --build"
 abbr dps "docker ps --format 'table {{.Names}}\t{{.Status}}'"
+abbr dsr "docker stack rm"
+abbr dsp "docker system prune"
 
 abbr e exit
 
