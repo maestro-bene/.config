@@ -4,6 +4,16 @@
 
 #abbr ast "aw set -t (aw list | fzf-tmux -p --reverse --preview 'aw set -t {}')"
 
+abbr a "asdf"
+abbr ar "asdf reshim"
+abbr als "asdf list"
+abbr ai "asdf install"
+abbr apu "asdf plugin update --all"
+abbr apl "asdf plugin list"
+abbr apa "asdf plugin add"
+abbr apr "asdf plugin remove"
+abbr ag "asdf global"
+
 abbr bi "brew install"
 abbr bic "brew install --cask"
 abbr bin "brew info"
@@ -12,6 +22,7 @@ abbr bl "brew leaves"
 abbr blr "brew leaves --installed-on-request"
 abbr blp "brew leaves --installed-as-dependency"
 abbr bs "brew search"
+abbr bu "brew uninstall"
 
 abbr c clear
 abbr cl clear
