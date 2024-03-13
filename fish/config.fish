@@ -40,6 +40,10 @@ set -Ux DOTNET_ROOT  $HOME/dotnet/
 set -Ux MISTRAL_API_KEY  j6SWQ3bSgr1fUFoYcln2r7PincJWPsxc
 set -Ux HOMEBREW_NO_ENV_HINTS 1
 
+if test -n "$NVIM_LISTEN_ADDRESS"
+  set -x MANPAGER "/usr/local/bin/nvr -c 'Man!' -o -"
+end
+
 fish_add_path -mp /opt/homebrew/bin
 fish_add_path -mp /opt/homebrew/sbin
 fish_add_path $GOPATH/bin
