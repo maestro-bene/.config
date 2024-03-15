@@ -21,6 +21,7 @@ if type -q glocate
     end
 end
 
+set ASDF_ALWAYS_KEEP_DOWNLOAD false
 
 set -U fish_greeting "" # disable fish greeting
 set -U fish_key_bindings fish_vi_key_bindings
