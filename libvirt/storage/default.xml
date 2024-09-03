@@ -1,0 +1,19 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh pool-edit default
+or other application using the libvirt API.
+-->
+
+<pool type='dir'>
+  <name>default</name>
+  <uuid>a1dfe622-bea0-40a4-983f-8d11e9ae2218</uuid>
+  <capacity unit='bytes'>0</capacity>
+  <allocation unit='bytes'>0</allocation>
+  <available unit='bytes'>0</available>
+  <source>
+  </source>
+  <target>
+    <path>/Users/maestro-bene/.local/share/libvirt/images</path>
+  </target>
+</pool>
