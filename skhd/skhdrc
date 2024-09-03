@@ -82,7 +82,8 @@ alt - tab : yabai -m space --focus recent
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
 shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
 
-.blacklist [
-   "kitty"
-   "terminal"
-]
+# .blacklist [
+# #    "kitty"
+# #    "terminal"
+# #    "qutebrowser"
+# # ]
