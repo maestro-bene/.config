@@ -1,5 +1,6 @@
 #!/usr/bin/env fish
 
+# Style for the header banner
 gum style \
     --foreground 12 --border-foreground 12 --border double \
     --align center --width 60 --margin "1 0" --padding "1 0" \
@@ -10,60 +11,45 @@ gum style \
 ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗
  ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝'
 
+# Create a timestamped log file
 set -l NOW (date +"%Y-%m-%d-%H-%M-%S")
 echo -e "$NOW\n" >>/tmp/u-$NOW.txt
 
+# Update tpm plugins and log output
 gum spin --spinner globe --title " 🪟 tpm plugins updating..." --show-output -- ~/.config/tmux/plugins/tpm/bin/update_plugins all >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Tpm plugins updated" >>/tmp/u-$NOW.txt
 echo " ✅ 🪟 tpm plugins updated"
 
+# Update fisher plugins and log output
 gum spin --spinner globe --title " 🐠 fisher plugins updating..." --show-output -- fisher update >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Fisher plugins updated" >>/tmp/u-$NOW.txt
 echo " ✅ 🐠 fisher plugins updated"
 
+# Sync lazy.nvim and log output
 gum spin --spinner globe --title " 💤 lazy.nvim syncing..." -- nvim --headless "+Lazy! sync" +qa
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Lazy synced" >>/tmp/u-$NOW.txt
 echo " ✅ 💤 lazy.nvim synced"
 
+# Update mason.nvim and log output
 gum spin --spinner globe --title " 🧰 mason.nvim updating" -- nvim --headless "+MasonUpdate" +qa
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Mason updated" >>/tmp/u-$NOW.txt
 echo " ✅ 🧰 mason.nvim updated"
 
-
-gum spin --spinner globe --title " 🍻 brew updating" --show-output -- brew update >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
-echo " ✅ 🍻 brew updated"
-
+# Stopping yabai and log output
 gum spin --spinner globe --title " 🛑 yabai stopping..." -- yabai --stop-service >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Stopped yabai" >>/tmp/u-$NOW.txt
 echo " ✅ 🛑 yabai stopped"
 
-set -l OUTDATED (brew outdated)
-echo $OUTDATED >>/tmp/u-$NOW.txt
+# Call the external brew script and log its output
+echo " 🍻 brew script to update and upgrade :"
+bash ~/.config/bin/b
+echo " ✅ 🍻 brew script finished"
 
-if test -n "$OUTDATED"
-    gum spin --spinner globe --title " ⏫ yabai upgrading..." --show-output -- brew upgrade yabai >>/tmp/u-$NOW.txt
-    echo "\n" >>/tmp/u-$NOW.txt
-    echo " ✅ ⏫ yabai upgraded"
-
-    gum spin --spinner globe --title " 🍻 brew upgrading" --show-output -- brew upgrade >>/tmp/u-$NOW.txt
-    echo "\n" >>/tmp/u-$NOW.txt
-    echo " ✅ 🍻 brew upgraded"
-
-    gum spin --spinner globe --title " 🍻 brew cleaning up" --show-output -- brew cleanup --prune=all >>/tmp/u-$NOW.txt
-    echo "\n" >>/tmp/u-$NOW.txt
-    echo " ✅ 🍻 brew cleaned up"
-else
-    echo "No outdated brew packages" >>/tmp/u-$NOW.txt
-end
-
-gum spin --spinner globe --title " 🍻 brew doctoring" --show-output -- brew doctor >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
-echo " ✅ 🍻 brew doctored"
-
+# Restart yabai and log output
 gum spin --spinner globe --title " 🟢 yabai starting..." -- yabai --start-service >>/tmp/u-$NOW.txt
-echo "\n" >>/tmp/u-$NOW.txt
+echo "Restarted yabai" >>/tmp/u-$NOW.txt
 echo " ✅ 🟢 yabai started"
 
+# Indicate logging location
 echo " ✅ 🧾 logged to /tmp/u-$NOW.txt"
-man /tmp/u-$NOW.txt
+$EDITOR /tmp/u-$NOW.txt

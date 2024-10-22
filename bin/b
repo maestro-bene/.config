@@ -1,5 +1,8 @@
 #!/bin/bash
 
+NOW=$(date +"%Y-%m-%d-%H-%M-%S")
+LOG_FILE="/tmp/b-$NOW.txt"
+
 gum style \
   --foreground 12 --border-foreground 12 --border double \
   --align center --width 50 --margin "1 0" --padding "1 2" \
@@ -10,20 +13,21 @@ gum style \
 ██████╔╝██║  ██║███████╗╚███╔███╔╝
 ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚══╝╚══╝'
 
-gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update
+gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update >>"$LOG_FILE" 2>&1
 printf "\n"
 
 OUTDATED=$(gum spin --show-output --spinner minidot --title "Checking for outdated brew packages" -- brew outdated)
+echo "$OUTDATED" >>"$LOG_FILE" 2>&1
 
 if [[ -n "$OUTDATED" ]]; then
   echo "$OUTDATED"
-  gum confirm --selected.background=2 --selected.foreground=0 "Upgrade the outdated formulae above?" && brew upgrade
+  gum confirm --selected.background=2 --selected.foreground=0 "Upgrade the outdated formulae above?" && brew upgrade >>"$LOG_FILE" 2>&1
   printf "\n"
-  brew cleanup --prune=all
+  brew cleanup --prune=all >>"$LOG_FILE" 2>&1
   printf "\n"
 else
-  echo "All brew packages are up to date."
+  echo "All brew packages are up to date." >>"$LOG_FILE"
   printf "\n"
 fi
 
-gum spin --show-output --spinner minidot --title "Checking for brew issues..." -- brew doctor
+gum spin --show-output --spinner minidot --title "Checking for brew issues..." -- brew doctor >>"$LOG_FILE" 2>&1
