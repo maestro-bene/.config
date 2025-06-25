@@ -8,6 +8,25 @@
 # ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ 
 # Simple hotkey daemon for macOS
 # https://github.com/koekeishiya/skhd
+#
+# # add an on_enter command to the default mode
+# :: default : yabai -m config active_window_border_color 0xff775759
+#
+# defines a new mode 'test' with an on_enter command, that captures keypresses
+# :: test @ : yabai -m config active_window_border_color 0xff24ccaa
+#
+# from 'default' mode, activate mode 'test'
+# cmd - x ; test
+#
+# from 'test' mode, activate mode 'default'
+# test < cmd - x ; default
+#
+# launch a new terminal instance when in either 'default' or 'test' mode
+# default, test < cmd - return : open -na /Applications/Terminal.app
+#
+cmd - a [
+     "kitty"       : echo "hello kitty"
+]
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -22,7 +41,7 @@ shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
 # Re allocate pipe char
-alt - ù : "|"
+alt - 0x27 : osascript -e 'tell application "System Events" to keystroke "|"'
 
 # move managed window
 shift + alt + ctrl - h : yabai -m window --warp west
@@ -81,6 +100,9 @@ alt - tab : yabai -m space --focus recent
 # send window to monitor and follow focus
 shift + alt - n : yabai -m window --display next; yabai -m display --focus next
 shift + alt - p : yabai -m window --display previous; yabai -m display --focus previous
+
+# quickly restart yabai
+ctrl + alt + cmd - r : yabai --restart-service
 
 # .blacklist [
 # #    "kitty"

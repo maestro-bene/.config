@@ -122,7 +122,7 @@ abbr tmuxc "nvim ~/.config/tmux/tmux.conf"
 abbr nvimc "nvim ~/.config/nvim/"
 abbr vimc "nvim ~/.config/nvim/"
 abbr yabaic "nvim ~/.config/yabai/yabairc"
-abbr conf "nvim ~/.config/"
+abbr config "nvim ~/.config/"
 
 #abbr x "chmod +x (ls | gum filter --limit 1 --header 'chmod +x')"
 

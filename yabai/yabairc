@@ -18,7 +18,7 @@ sudo /opt/homebrew/bin/yabai --load-sa
 
 # global settings
 yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         autofocus
+yabai -m config focus_follows_mouse         off
 yabai -m config window_origin_display       default
 yabai -m config window_placement            second_child
 yabai -m config window_shadow               on
@@ -44,9 +44,14 @@ yabai -m config window_gap                  6
 
 # apps to not manage (ignore)
 yabai -m rule --add app="^Réglages Système$" manage=off
+yabai -m rule --add app="^System Settings" manage=off
+yabai -m rule --add app="^CleanMyMac" manage=off
 yabai -m rule --add app="^Finder" manage=off
 yabai -m rule --add app="^Webex" manage=off
 yabai -m rule --add app="^MAMP" manage=off
 yabai -m rule --add app="^League of Legends" manage=off
+yabai -m rule --add app="^Riot Client" manage=off
+yabai -m rule --add app="^OP.GG" manage=off
+yabai -m rule --add app="^UAD Meter & Control Panel" manage=off
 
 echo "yabai configuration loaded.."
