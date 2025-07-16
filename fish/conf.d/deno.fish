@@ -1,0 +1,1 @@
+source "/Users/maestro-bene/.deno/env.fish"
